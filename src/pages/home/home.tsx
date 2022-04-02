@@ -1,10 +1,10 @@
 import React from 'react';
-import Container from '../../components/container/container';
+import { Container } from '@mui/material';
 
 export default function LoginPage() {
   return (
     <section>
-      <Container>
+      <Container maxWidth="xl">
         <h1>Home</h1>
       </Container>
     </section>

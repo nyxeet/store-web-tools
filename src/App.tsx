@@ -1,16 +1,14 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Header from './components/header/header';
 
-function App() {
-  const array = <T, Y>(fir: T, sec: Y) => {
-    return <><div>{fir}</div><div>{sec}</div></>
-  }
-
+const App = (): JSX.Element => {
   return (
-    <div className="App">
-      React
-      {array(5, 3)}
+    <div>
+      <Header />
+      <Outlet />
     </div>
   );
-}
+};
 
 export default App;

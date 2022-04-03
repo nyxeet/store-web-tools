@@ -13,11 +13,14 @@ import {
   MenuItem,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import { HeaderStyles } from './header-styles';
+import ThemeProvider from '../theme/theme-provider';
 
-const pages = [{ name: 'Home', route: '/home' }];
+const pages = [
+  { name: 'Home', route: '/home' },
+  { name: 'Login', route: '/login' },
+];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Header = () => {
@@ -41,18 +44,9 @@ const Header = () => {
     setAnchorElUser(null);
   };
 
-  const darkTheme = createTheme({
-    palette: {
-      mode: 'dark',
-      primary: {
-        main: '#1976d2',
-      },
-    },
-  });
-
   return (
     <HeaderStyles>
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider>
         <AppBar position="static">
           <Container maxWidth="xl">
             <Toolbar disableGutters>

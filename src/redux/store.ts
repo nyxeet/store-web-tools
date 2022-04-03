@@ -1,6 +1,6 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-import { userReducer } from './auth/reducer';
+import { userReducer } from './user/reducer';
 import {
   persistStore,
   persistReducer,
@@ -12,7 +12,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { userState } from './auth/types';
+import { userState } from './user/types';
 
 const middleware = [
   ...getDefaultMiddleware({

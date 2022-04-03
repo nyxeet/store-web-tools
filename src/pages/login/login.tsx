@@ -14,8 +14,8 @@ import Container from '@mui/material/Container';
 import { createTheme } from '@mui/material/styles';
 import ThemeProvider from '../../components/theme/theme-provider';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { login } from '../../redux/auth/actions';
+import { useAppDispatch } from '../../redux/hooks/hooks';
+import { login } from '../../redux/user/toolkit/action-creator';
 
 const theme = createTheme({
   palette: {
@@ -30,7 +30,7 @@ const theme = createTheme({
 
 export default function Login() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);

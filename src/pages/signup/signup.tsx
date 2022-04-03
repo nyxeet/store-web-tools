@@ -13,9 +13,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme } from '@mui/material/styles';
 import ThemeProvider from '../../components/theme/theme-provider';
-import { register } from '../../redux/auth/actions';
-import { useDispatch } from 'react-redux';
+import { registerUser } from '../../redux/user/toolkit/action-creator';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../../redux/hooks/hooks';
 
 const theme = createTheme({
   palette: {
@@ -30,7 +30,7 @@ const theme = createTheme({
 
 export default function SignUp() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -42,7 +42,7 @@ export default function SignUp() {
       password: data.get('password'),
     };
 
-    await dispatch(register(dtoIn));
+    await dispatch(registerUser(dtoIn));
 
     navigate('/home');
   };

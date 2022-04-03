@@ -16,8 +16,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
 import { HeaderStyles } from './header-styles';
 import ThemeProvider from '../theme/theme-provider';
-import { useSelector } from 'react-redux';
-import { ApplicationState } from '../../redux/store';
+import { useAppSelector } from '../../redux/hooks/hooks';
 
 const publicPages = [
   { name: 'Login', route: '/login' },
@@ -31,9 +30,7 @@ const privatePages = [
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Header = () => {
-  const isLogin = useSelector(
-    (state: ApplicationState) => state.user.data.token,
-  );
+  const isLogin = useAppSelector(state => state.user.data.token);
   const pages = isLogin ? privatePages : publicPages;
 
   const navigate = useNavigate();
